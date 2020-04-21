@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Paevik.MainPage" ScaleY="1">
+    
+
+    <ContentPage.Content>
+        
+        <StackLayout>
+            
+            <Grid HorizontalOptions="Center" BackgroundColor="#dae2e3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="85*" />
+                    <RowDefinition Height="10*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="31*" />
+                    <ColumnDefinition Width="31*" />
+                    <ColumnDefinition Width="31*" />
+                </Grid.ColumnDefinitions>
+                    <Label TextColor="Black"  Grid.Column="0" Grid.Row="0" Text="Kuupäev" HorizontalOptions="Center"/>
+                    <Label TextColor="Black"  Grid.Column="1" Grid.Row="0" Text="Toit" HorizontalOptions="Center"/>
+                    <Label TextColor="Black" Grid.Column="2" Grid.Row="0" Text="Kcal" HorizontalOptions="Center"/>
+                </Grid>
+
+                <ListView RefreshControlColor="Aqua" x:Name="pohiList" ItemTapped="Listview_Vajutus" Grid.Row="1" SeparatorColor="#dae2e3" Margin="5,0,5,2" BackgroundColor="White" >
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                
+                                <Grid Padding="0,5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="31*" />
+                                    <ColumnDefinition Width="31*" />
+                                    <ColumnDefinition Width="31*" />
+                                </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="{Binding KPItem}" HorizontalOptions="Center"/>
+                                    <Label Grid.Column="1" Text="{Binding ToitItem}" HorizontalOptions="Center"/>
+                                    <Label Grid.Column="2" Text="{Binding KcalItem}" HorizontalOptions="Center"/>
+                                    <Grid.Triggers>
+                                        <DataTrigger TargetType="Grid" Binding="{Binding ToitItem}" Value="KOKKU:">
+                                            <Setter Property="BackgroundColor" Value="LightGray" />
+                                        </DataTrigger>
+                                    </Grid.Triggers>
+                                </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+                <Grid Grid.Row="2" BackgroundColor="#dae2e3" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25*" />
+                    <ColumnDefinition Width="25*" />
+                    <ColumnDefinition Width="25*" />
+                    <ColumnDefinition Width="25*" />
+                </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" x:Name="KustutaKirje"  Text="Ø"  Clicked="KustutaKirje_Vajutus" TextColor="#FF0000" BackgroundColor="#f0bbb6" VerticalOptions="FillAndExpand" />
+                    <Button Grid.Column="1" x:Name="KaalNupp" Text="Kg" Clicked="KaalNupp_Vajutus" BackgroundColor="#bad9db" VerticalOptions="FillAndExpand" />
+                    <Button Grid.Column="2" x:Name="KirjutaYleNupp" Text="../" Clicked="KirjutaYleNupp_Vajutus" BackgroundColor="#bad9db" VerticalOptions="FillAndExpand" />
+                    <Button Grid.Column="3" x:Name="lisaNupp" Text="+" Clicked="LisaNupp_Vajutus" BackgroundColor="#b6f0b6" VerticalOptions="FillAndExpand" />
+            </Grid>
+        </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
+
+    

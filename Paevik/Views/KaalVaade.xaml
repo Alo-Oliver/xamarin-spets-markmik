@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Paevik.Views.KaalVaade">
+    <ContentPage.Content>
+
+        <StackLayout>
+            <Grid BackgroundColor="#dae2e3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="85*" />
+                    <RowDefinition Height="10*" />
+                </Grid.RowDefinitions>
+                <Grid BackgroundColor="#dae2e3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48*" />
+                        <ColumnDefinition Width="48*" />
+                    </Grid.ColumnDefinitions>
+                    <Label  Grid.Column="0" Grid.Row="0" Text="Kuupäev" TextColor="Black" HorizontalOptions="Center"/>
+                    <Label  Grid.Column="1" Grid.Row="0" Text="Kaal" TextColor="Black" HorizontalOptions="Center"/>
+                </Grid>
+
+                <ListView x:Name="kaalList" ItemTapped="Listview_Vajutus" Grid.Row="1" SeparatorColor="#dae2e3" Margin="5,0,5,2" BackgroundColor="White">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="48*" />
+                                        <ColumnDefinition Width="48*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label  Grid.Column="0" Text="{Binding KaalKPItem}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    <Label  Grid.Column="1" Text="{Binding KaalItem}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+                <Grid Grid.Row="2" BackgroundColor="#dae2e3" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25*" />
+                        <ColumnDefinition Width="25*" />
+                        <ColumnDefinition Width="25*" />
+                        <ColumnDefinition Width="25*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" x:Name="KustutaKirje"  Text="Ø" Clicked="KustutaKaalKirje_Vajutus" TextColor="#FF0000" BackgroundColor="#f0bbb6" VerticalOptions="FillAndExpand"/>
+                    <Button Grid.Column="3" x:Name="lisaNupp" Text="+" Clicked="LisaKaalNupp_Vajutus" BackgroundColor="#b6f0b6" VerticalOptions="FillAndExpand" />
+                    <Button Grid.Column="2" x:Name="KirjutaYleNupp" Text="../" Clicked="KirjutaYleNupp_Vajutus" BackgroundColor="#bad9db" VerticalOptions="FillAndExpand" />
+                    <Button Grid.Column="1" x:Name="trendNupp" Text="/\/" Clicked="TrendNupp_Vajutus" BackgroundColor="#bad9db" VerticalOptions="FillAndExpand" />
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

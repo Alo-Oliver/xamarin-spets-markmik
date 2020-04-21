@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Paevik.SisestaVaade" BackgroundColor="#dae2e3">
+    <ContentPage.Content >
+        <StackLayout BackgroundColor="#dae2e3" VerticalOptions="Center" Margin="5,0,5,0">
+            <Grid x:Name="MainGrid" BackgroundColor="White" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="31*" />
+                    <ColumnDefinition Width="31*" />
+                    <ColumnDefinition Width="31*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" Text="Kuupäev" TextColor="Black" HorizontalOptions="Center"></Label>
+                <Label  Grid.Column="1" Grid.Row="0" Text="Toit" TextColor="Black" HorizontalOptions="Center"/>
+                <Label Grid.Column="2" Grid.Row="0" Text="Kcal" TextColor="Black" HorizontalOptions="Center"/>
+
+                <DatePicker x:Name="SisendKuupaev" Grid.Column="0" Grid.Row="1" Format="yyyy-MM-dd"></DatePicker>
+                <Entry Completed="SisendToit_Completed" x:Name="SisendToit" Grid.Column="1" Grid.Row="1" Keyboard="Text" MaxLength="50"></Entry>
+                <Entry Completed="SisendKcal_Completed" x:Name="SisendKcal" Grid.Column="2" Grid.Row="1" Keyboard="Numeric"></Entry>
+
+            </Grid>
+            <Grid Grid.Row="2" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48*" />
+                    <ColumnDefinition Width="48*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="1" x:Name="LisaKirje"  Text="+" BackgroundColor="#b6f0b6" VerticalOptions="FillAndExpand" Clicked="LisaKirje_Vajutus" FontSize="Large" />
+                <Button Grid.Column="0" x:Name="Tagasi" Text="Ø" TextColor="#FF0000" BackgroundColor="#f0bbb6" VerticalOptions="FillAndExpand" FontSize="Large" Clicked="Tagasi_Clicked"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
